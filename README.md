@@ -1,6 +1,6 @@
 # _Pierre's Sweet And Savory Treats_
 
-#### _Epicodus 2020 C#/React Cohort Week 6 Friday Project._
+#### _Epicodus 2020 C#/React Cohort Week 5 Friday Project._
 
 #### By _**Drake Wilcox | 24 March 2020**_
 
