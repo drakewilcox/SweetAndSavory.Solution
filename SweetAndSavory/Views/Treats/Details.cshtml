@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+@model SweetAndSavory.Models.Treat;
+
+  <div class="card set-page text-center">
+    <h1>@Html.DisplayFor(model => model.Name)</h1>
+    <hr>
+    <br>
+    @if(@Model.Flavors.Count == 0)
+    {
+      <p>Sorry, this treat does not have flavor options at this time</p>
+    }
+    else
+    {
+      <h4>Flavors:</h4>
+      <ul>
+      @foreach(var join in Model.Flavors)
+      {
+        <p>@Html.ActionLink($"{@join.Flavor.Name}", "Details", "Flavors", new { id = join.FlavorId }, new { @class="content"})</p>
+      }
+      </ul>
+    }
+  </div>
