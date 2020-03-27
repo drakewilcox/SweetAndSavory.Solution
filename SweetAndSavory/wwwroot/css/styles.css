@@ -15,3 +15,11 @@ hr{
   margin-left: 20%;
   padding: 5%;
 }
+.content {
+  color: whitesmoke;
+}
+
+.content:hover {
+  color: #888;
+  background-color: transparent;
+}
