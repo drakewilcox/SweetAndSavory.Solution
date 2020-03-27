@@ -1,0 +1,17 @@
+body {
+  background-image: url("../img/pastrybckground.jpg");
+ 
+  background-color: #cccccc;
+  font-family: 'Slabo 27px', serif;
+ }
+hr{
+  border-color: whitesmoke;
+}
+.set-page {
+  background-color: #343a40;
+  color: whitesmoke;
+  margin-top: 10%;
+  margin-right: 20%;
+  margin-left: 20%;
+  padding: 5%;
+}
