@@ -18,106 +18,104 @@ namespace SweetAndSavory.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   return View(_db.Categories.ToList());
-    // }
+    public ActionResult Index()
+    {
+      return View(_db.Treats.ToList());
+    }
 
-    // [Authorize]
-    // public ActionResult Create()
-    // {
-    //   ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-    //   return View();
-    // }
+    [Authorize]
+    public ActionResult Create()
+    {
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      return View();
+    }
 
-    // [Authorize]
-    // [HttpPost]
-    // public ActionResult Create(Category category, int RecipeId)
-    // {
-    //   _db.Categories.Add(category);
-    //   if(RecipeId != 0)
-    //   {
-    //     _db.CategoryRecipe.Add(new CategoryRecipe() { RecipeId = RecipeId, CategoryId = category.CategoryId});
-    //   }
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [Authorize]
+    [HttpPost]
+    public ActionResult Create(Treat treat, int FlavorId)
+    {
+      _db.Treats.Add(treat);
+      if(FlavorId != 0)
+      {
+        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId});
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // public ActionResult Details(int id)
-    // {
-    //   Category thisCategory = _db.Categories
-    //     .Include(category => category.Recipes)
-    //     .ThenInclude(join => join.Recipe)
-    //     .FirstOrDefault(category => category.CategoryId == id);
-    //   return View(thisCategory);
-    // }
+    public ActionResult Details(int id)
+    {
+      Treat thisTreat = _db.Treats
+        .Include(treat => treat.Flavors)
+        .ThenInclude(join => join.Flavor)
+        .FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
+    }
 
-    // [Authorize]
-    // public ActionResult Edit(int id)
-    // {
-    //   Category thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   ViewBag.CategoryId = new SelectList(_db.Recipes, "RecipeId", "Name");
-    //   return View(thisCategory);
-    // }
+    [Authorize]
+    public ActionResult Edit(int id)
+    {
+      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      ViewBag.TreatId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      return View(thisTreat);
+    }
 
-    // [Authorize]
-    // [HttpPost]
-    // public ActionResult Edit(Category category, int RecipeId)
-    // {
-    //   if(RecipeId != 0)
-    //   {
-    //     _db.CategoryRecipe.Add(new CategoryRecipe() { RecipeId = RecipeId, CategoryId = category.CategoryId });
-    //   }
-    //   _db.Entry(category).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [Authorize]
+    [HttpPost]
+    public ActionResult Edit(Treat treat, int FlavorId)
+    {
+      if(FlavorId != 0)
+      {
+        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId });
+      }
+      _db.Entry(treat).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // [Authorize]
-    // public ActionResult AddRecipe(int id)
-    // {
-    //   Category thisCategory = _db.Categories.FirstOrDefault(categories => categories.CategoryId == id);
-    //   ViewBag.RecipeId = new SelectList(_db.Recipes, "RecipeId", "Name");
-    //   return View(thisCategory);
-    // }
+    [Authorize]
+    public ActionResult AddFlavor(int id)
+    {
+      Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      return View(thisTreat);
+    }
 
-    // [Authorize]
-    // [HttpPost]
-    // public ActionResult AddRecipe(Category category, int RecipeId)
-    // {
-    //   if(RecipeId != 0)
-    //   {
-    //     _db.CategoryRecipe.Add(new CategoryRecipe() { RecipeId = RecipeId, CategoryId = category.CategoryId });
-    //   }
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [Authorize]
+    [HttpPost]
+    public ActionResult AddFlavor(Treat treat, int FlavorId)
+    {
+      if(FlavorId != 0)
+      {
+        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // [Authorize]
-    // public ActionResult Delete(int id)
-    // {
-    //   var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   return View(thisCategory);
-    // }
+    [Authorize]
+    public ActionResult Delete(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
+    }
     
-    // [Authorize]
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   _db.Categories.Remove(thisCategory);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [Authorize]
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      _db.Treats.Remove(thisTreat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // [Authorize]
-    // [HttpPost]
-    // public ActionResult Search(string search)
-    // {
-    //   List<Category> model = _db.Categories.Where(category => (category.Name.Contains(search))).ToList();
-    //   return View(model);
-    // }
-
-
+    [Authorize]
+    [HttpPost]
+    public ActionResult Search(string search)
+    {
+      List<Treat> model = _db.Treats.Where(treat => (treat.Name.Contains(search))).ToList();
+      return View(model);
+    }
   }
 }
