@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+  <div class="card set-page text-center">
+   <h2>Please Signup or Login</h2>
+    <hr/>
+    @if(User.Identity.IsAuthenticated)
+    {
+      <p> Hello @User.Identity.Name!</p>
+      @using (Html.BeginForm("LogOff", "Account"))
+      {
+        <input type="submit"  class="btn btn-dark" value="Log out"/>
+      }
+    }
+    else
+    {
+      <p>@Html.ActionLink("Register", "Register", "Account", null,  new { @class = "btn btn-dark btn-lg" } )</p>
+      <p>@Html.ActionLink("Log in", "Login", "Account", null,  new { @class = "btn btn-dark btn-lg" } )</p>
+    }
+  </div>

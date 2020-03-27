@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+@using SweetAndSavory.ViewModels
+@model LoginViewModel
+  <div class="card set-page text-center">
+    <h1>Log In:</h1>
+    <hr>
+    <br>
+    @using (Html.BeginForm())
+    {
+      @Html.LabelFor(m => m.Email)
+      <br>
+      @Html.TextBoxFor(m => m.Email)
+      <br>
+      <br>
+      @Html.LabelFor(m => m.Password)
+      <br>
+      @Html.PasswordFor(m => m.Password)
+      <br>
+      <br>
+      <input type="submit" value="Log in"  class="btn btn-dark" />
+    }
+    
+  </div>
