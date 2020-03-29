@@ -27,15 +27,15 @@
     </ul>
     @if(User.Identity.IsAuthenticated)//user is signed in
     {
-      <ul class="nav navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            @* <a href= "#"class="nav-link content">Hello @User.Identity.Name</a> *@
+          </li>
           <li class="nav-item">
             @using (Html.BeginForm("LogOff", "Account"))
             {
-              <input type="submit" value="Log Out" class= "btn btn-link link">
+              <input class= "btn btn-dark content nav-link" type="submit" value= "Log Out: @User.Identity.Name">
             }
-          <li class="nav-item">
-            <p class="btn btn-link content">Hello @User.Identity.Name</p>
-          </li>
           </li>
       </ul>
     }
