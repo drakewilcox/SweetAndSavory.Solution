@@ -11,12 +11,18 @@
     {
      @foreach(Flavor flavor in Model)
      {
-       <p>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId }, new {@class = "content"})</p>
+       <h4>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId }, new {@class = "content"})</h4>
+       <br>
      }
     }
     else
     {
       <p>No Treats are currently available in this flavor</p>
     }
-    <p>@Html.ActionLink("Add A New Flavor", "Create", "Flavors", null,  new { @class = "btn btn-dark btn-large" } )</p>
+    <hr>
+    @if(User.Identity.IsAuthenticated)
+    {
+      <p>@Html.ActionLink("Add A New Flavor", "Create", "Flavors", null,  new { @class = "btn btn-dark btn-lg" } )</p>
+    }
+    <p>@Html.ActionLink("Home", "Index", "Home", null,  new { @class = "btn btn-dark btn-lg" } )</p>
   </div>

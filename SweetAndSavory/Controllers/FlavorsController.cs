@@ -107,12 +107,13 @@ namespace SweetAndSavory.Controllers
 
     [Authorize]
     [HttpPost]
-    public ActionResult DeleteTreat(int joinId)
+    public ActionResult DeleteTreat(int joinId, int FlavorId)
     {
       var joinEntry = _db.TreatFlavor.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
+      var refresh = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == FlavorId);
       _db.TreatFlavor.Remove(joinEntry);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = refresh.FlavorId });
     }
   }
 }

@@ -17,6 +17,9 @@
       <h4>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId }, new {@class = "content"})</h4>
     }
     <hr>
-    <p>@Html.ActionLink("Add Treat", "Create", "Treats", null, new { @class = "btn btn-dark brn-large"})</p>
-    <p>@Html.ActionLink("Home", "Index", "Home", null,  new { @class = "btn btn-dark btn-large" } )</p>
+    @if(User.Identity.IsAuthenticated)
+    {
+    <p>@Html.ActionLink("Add Treat", "Create", "Treats", null, new { @class = "btn btn-dark btn-lg"})</p>
+    }
+    <p>@Html.ActionLink("Home", "Index", "Home", null,  new { @class = "btn btn-dark btn-lg" } )</p>
   </div>

@@ -5,6 +5,7 @@
 
   <div class="card set-page text-center">
     <h1>@Html.DisplayFor(model => model.Name)</h1>
+    <p><em>All flavors availble for this treat</em></p>
     <hr>
     <br>
     @if(@Model.Flavors.Count == 0)
@@ -13,8 +14,6 @@
     }
     else
     {
-      <h4>Flavors:</h4>
-
       @foreach(var join in Model.Flavors)
       {
         <h3>@Html.ActionLink($"{@join.Flavor.Name}", "Details", "Flavors", new { id = join.FlavorId }, new { @class="content"})</h3>
@@ -28,7 +27,11 @@
     }
     <br>
     <hr>
-
+    @if(User.Identity.IsAuthenticated)
+    {
+      <p>@Html.ActionLink("Add a Flavor to this Treat", "AddFlavor", new { id = Model.TreatId }, new { @class = "btn btn-dark btn-lg"})</p>
+      
+      <p>@Html.ActionLink("Delete Treat", "Delete", "Treats", new { id = Model.TreatId }, new { @class = "btn btn-dark btn-lg"} )</p>
+    }
     <p>@Html.ActionLink("See All Treats", "Index", "Treats", null, new { @class = "btn btn-dark btn-lg"} )</p>
-
   </div>
