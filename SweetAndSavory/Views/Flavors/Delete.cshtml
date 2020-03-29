@@ -6,11 +6,12 @@
     <h1>Confirm Delete:</h1>
     <hr>
     <br>
-    @Html.Display("Name"): @Html.DisplayFor(model => model.Name)
+    <h5>Are you sure you want to delete <em>@Html.DisplayFor(model => model.Name)</em>, from the flavor database?</h5> 
+    <br>
     @using (Html.BeginForm())
     {
-      <input class = "btn btn-primary btn-lg" type="submit" value="Delete" />
+      <input class = "btn btn-dark btn-lg" type="submit" value="Delete" />
     }
-    <br>
-    @Html.ActionLink("Cancel", "Index", "Flavors", null,  new { @class = "btn btn-primary btn-lg" } )
+    <p> @Html.ActionLink("Cancel", "Index", "Flavors", null,  new { @class = "btn btn-dark btn-lg" })</p>
+   
   </div>
