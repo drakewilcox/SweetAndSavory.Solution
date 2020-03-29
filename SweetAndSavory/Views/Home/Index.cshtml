@@ -5,5 +5,10 @@
     <h1>Pierre's Sweet and Savory Treats</h1>
     <hr>
     <br>
-    <p>@Html.ActionLink("Create Account", "Index", "Account", null,  new { @class = "btn btn-light btn-large" } )</p>
+    @if(!User.Identity.IsAuthenticated) 
+    {
+      <p>@Html.ActionLink("Create Account", "Index", "Account", null,  new { @class = "btn btn-dark btn-lg" } )</p>
+    }
+    <p>@Html.ActionLink("See All Treats", "Index", "Treats", null, new { @class = "btn btn-dark btn-lg"} )</p>
+    <p>@Html.ActionLink("See All Flavors", "Index", "Flavors", null, new { @class = "btn btn-dark btn-lg"} )</p>
   </div>

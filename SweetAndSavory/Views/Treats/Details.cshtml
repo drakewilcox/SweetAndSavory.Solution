@@ -5,7 +5,7 @@
 
   <div class="card set-page text-center">
     <h1>@Html.DisplayFor(model => model.Name)</h1>
-    <p><em>All flavors availble for this treat</em></p>
+    <p><em>All flavors available for this treat</em></p>
     <hr>
     <br>
     @if(@Model.Flavors.Count == 0)
@@ -30,7 +30,7 @@
     @if(User.Identity.IsAuthenticated)
     {
       <p>@Html.ActionLink("Add a Flavor to this Treat", "AddFlavor", new { id = Model.TreatId }, new { @class = "btn btn-dark btn-lg"})</p>
-      
+
       <p>@Html.ActionLink("Delete Treat", "Delete", "Treats", new { id = Model.TreatId }, new { @class = "btn btn-dark btn-lg"} )</p>
     }
     <p>@Html.ActionLink("See All Treats", "Index", "Treats", null, new { @class = "btn btn-dark btn-lg"} )</p>
