@@ -76,7 +76,7 @@ namespace SweetAndSavory.Controllers
     [Authorize]
     public ActionResult AddFlavor(int id)
     {
-      Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
       return View(thisTreat);
     }

@@ -1,10 +1,16 @@
 @{
   Layout = "_Layout";
 }
+@model SweetAndSavory.Models.Recipe
   <div class="card set-page text-center">
-    <h1></h1>
+    <h1>Confirm Delete:</h1>
     <hr>
     <br>
-
-    
+    @Html.Display("Name"): @Html.DisplayFor(model => model.Name)
+    @using (Html.BeginForm())
+    {
+      <input class = "btn btn-primary btn-lg" type="submit" value="Delete" />
+    }
+    <br>
+    @Html.ActionLink("Cancel", "Index", "Flavors", null,  new { @class = "btn btn-primary btn-lg" } )
   </div>

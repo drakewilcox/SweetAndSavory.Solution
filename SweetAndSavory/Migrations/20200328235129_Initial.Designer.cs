@@ -9,7 +9,7 @@ using SweetAndSavory.Models;
 namespace SweetAndSavory.Migrations
 {
     [DbContext(typeof(DrakeWilcoxContext))]
-    [Migration("20200327174555_Initial")]
+    [Migration("20200328235129_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

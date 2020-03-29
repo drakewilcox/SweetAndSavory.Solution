@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavory.Models.Flavor
+
+<div class="card set-page text-center">
+  <h1>Add a Treat to: @Html.DisplayFor(model => model.Name)</h1>
+  <hr>
+  <br>
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.FlavorId)
+    <h5>@Html.Label("Select Treat")</h5>
+    <p>@Html.DropDownList("TreatId")</p>
+    <input class="btn btn-dark btn-lg" type="submit" value="Save"/>
+  }
+  <hr>
+  <br>
+  @Html.ActionLink("See All Flavors", "Index", "Flavors", null, new { @class = "brn btn-dark btn-lg" })
+</div>

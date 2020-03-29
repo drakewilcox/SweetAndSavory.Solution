@@ -1,10 +1,22 @@
 @{
   Layout = "_Layout";
 }
+@using SweetAndSavory.Models;
+@model IEnumerable<SweetAndSavory.Models.Flavor>
   <div class="card set-page text-center">
-    <h1></h1>
+    <h1>Flavors: </h1>
     <hr>
     <br>
-
-    
+    @if (Model.Any())
+    {
+     @foreach(Flavor flavor in Model)
+     {
+       <p>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId }, new {@class = "content"})</p>
+     }
+    }
+    else
+    {
+      <p>No Treats are currently available in this flavor</p>
+    }
+    <p>@Html.ActionLink("Add A New Flavor", "Create", "Flavors", null,  new { @class = "btn btn-dark btn-large" } )</p>
   </div>

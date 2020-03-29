@@ -69,7 +69,7 @@ namespace SweetAndSavory.Controllers
     }
 
     [Authorize]
-    public ActionResult AddCategory(int id)
+    public ActionResult AddTreat(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
@@ -78,7 +78,7 @@ namespace SweetAndSavory.Controllers
 
     [Authorize]
     [HttpPost]
-    public ActionResult AddCategory(Flavor flavor, int TreatId)
+    public ActionResult AddTreat(Flavor flavor, int TreatId)
     {
       if (TreatId != 0)
       {

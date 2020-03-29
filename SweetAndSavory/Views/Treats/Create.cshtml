@@ -15,6 +15,8 @@
     @Html.TextBoxFor(model => model.Name)
     <br>
     <br>
-    <input class="btn btn-dark btn-large" type="submit" value="Add Treat"/>
+    <input class="btn btn-dark btn-lg" type="submit" value="Add Treat"/>
   }
+<hr>
+<p>@Html.ActionLink("Back to Treats List", "Index", "Treats", null, new { @class = "btn btn-dark btn-md" } )</p>
 </div>

@@ -14,11 +14,14 @@
     else
     {
       <h4>Flavors:</h4>
-      <ul>
       @foreach(var join in Model.Flavors)
       {
         <p>@Html.ActionLink($"{@join.Flavor.Name}", "Details", "Flavors", new { id = join.FlavorId }, new { @class="content"})</p>
       }
-      </ul>
     }
+    <br>
+    <hr>
+
+    <p>@Html.ActionLink("See All Treats", "Index", "Treats", null, new { @class = "btn btn-dark btn-lg"} )</p>
+
   </div>
