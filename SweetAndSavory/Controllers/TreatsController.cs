@@ -112,10 +112,20 @@ namespace SweetAndSavory.Controllers
 
     [Authorize]
     [HttpPost]
-    public ActionResult Search(string search)
+    public ActionResult DeleteFlavor(int joinId, int TreatId)
     {
-      List<Treat> model = _db.Treats.Where(treat => (treat.Name.Contains(search))).ToList();
-      return View(model);
+      var joinEntry = _db.TreatFlavor.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
+      var refresh = _db.Treats.FirstOrDefault(treat => treat.TreatId == TreatId);
+      _db.TreatFlavor.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = refresh.TreatId });
     }
+    
+    // [HttpPost]
+    // public ActionResult Search(string search)
+    // {
+    //   List<Treat> model = _db.Treats.Where(treat => (treat.Name.Contains(search))).ToList();
+    //   return View(model);
+    // }
   }
 }
