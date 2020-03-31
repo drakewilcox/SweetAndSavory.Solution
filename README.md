@@ -2,16 +2,27 @@
 
 #### _Epicodus 2020 C#/React Cohort Week 5 Friday Project._
 
-#### By _**Drake Wilcox | 24 March 2020**_
+#### By _**Drake Wilcox | 27 March 2020**_
 
 ## Description
 
-This program will allow users to signup, login, and make changes to the database. Only users can make changes to the database, but all users are able to view information from the database. 
+This program will allow users to signup, login, and make changes to the database of Treats and Flavors at a Bakery. Only users can make changes to the database, but all users are able to view information from the database. 
 
 ## Specifications:
 
 | Behavior | Example Input | Example Output |
 |:--------|:-------------:|:--------------:|
+|A user can register for an account | User Enters Email, Password and Confirm password | "Please Sign Up or LogIn" |
+| A user can login to an account to be able to edit, add, and delete all database information | LogIn | "Hello UserName" | 
+| From the Add Treat Page, A User can enter in a new treat item and then see that treat added to the list | Add Treat: "Cookie" | Treats: "Cookie" | 
+| If a User clicks on a treat, they are directed to a page dislplaying specific information of that treat, and the flavors included. | Click: "Cookie" | Cookie Details | 
+| From the Treat Details Page, the user can add flavors, or delete the treat | Add a Flavor | Add Flavor Form | 
+| From the Treat Details Page, A User can remove a flavor from a treat list, but does not delete the flavor from the database. | "Remove" | Cookie Detail list without the removed flavor. | 
+| From the Add Flavor Page, A User can enter in a new Flavor item and then see that flavor added to the list | Add Flavor: "Sweet" | Flavors: "Sweet" | 
+| If a User clicks on a flavor, they are directed to a page dislplaying specific information of that flavor, and the treats included. | Click: "Sweet" | Sweet Details | 
+| From the Flavor Details Page, the user can add flavors, or delete the treat | Add a Flavor | Add Flavor Form | 
+| From the Treat Details Page, A User can EDIT a Flavor by removing a Treat from a Flavor list, but does not delete the treat from the database. | "Remove" | Cookie Detail list without the removed treat. | 
+| A non logged in user can only view the details of the database and not EDIT, DELETE, or ADD information to the database | Non Logged in User Clicks on "All Treats" | Treat list without add treat button. | 
 
 
 ## Setup/Installation Requirements
