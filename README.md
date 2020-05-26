@@ -77,9 +77,9 @@ _Add the MySQL environment variable to the System PATH. Instructions for Windows
 _Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
 * ``cd desktop``
 * ``git clone https://github.com/drakewilcox/SweetAndSavory.Solution``
-* ``cd RecipeBox.Solution``
+* ``cd SweetAndSavory.Solution``
 
-_Confirm that you have navigated to the HairSalon.Solution directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
+_Confirm that you have navigated to the SweetAndSavory.Solution directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
 
 _Change into the working directory of the project:_
 * ``cd SweetAndSavory``
